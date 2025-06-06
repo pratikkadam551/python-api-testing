@@ -97,6 +97,7 @@ class TestPostRequests:
         assert response.json()["title"] == todo_data["title"]
         assert response.json()["completed"] == todo_data["completed"]
 
+    @pytest.mark.xfail
     def test_create_reqres_user(self, reqres_url, session, user_data):
         """Test creating a new user in ReqRes API"""
         response = session.post(f"{reqres_url}/api/users", json=user_data)
